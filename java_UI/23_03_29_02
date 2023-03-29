@@ -1,0 +1,66 @@
+public class Sample extends JFrame {
+	   Container c = getContentPane();
+	   
+	   JTextField textField01;
+	   JTextField textFieldResult;
+	   JLabel label01;
+	   JLabel label02;
+	   
+	   final double PI = 3.14;
+	   
+	   public Sample() {
+	      c.setLayout(null);
+	      setSize(500,500);
+	      setTitle("java gui 프로그래밍창");
+	      
+	      JButton btnClick01 = new JButton("계산");
+	      btnClick01.setBackground(Color.pink);
+	      btnClick01.addActionListener(new ActionListener() {
+	         public void actionPerformed(ActionEvent e) {
+	            on_click();
+	         }
+	      });
+	      btnClick01.setBounds(150, 120, 150, 40);
+	      c.add(btnClick01);
+	      
+	      textField01 = new JTextField();
+	      textField01.setBounds(20, 60, 200, 40);
+	      c.add(textField01);
+	      
+	      textFieldResult = new JTextField();
+	      textFieldResult.setBounds(240, 60, 200, 40);
+	      c.add(textFieldResult);
+	      
+	      label01 = new JLabel("원의 반지름");
+	      label01.setBounds(85, 20, 200, 40);
+	      c.add(label01);
+	      
+	      label02 = new JLabel("원의 넓이");
+	      label02.setBounds(315, 20, 200, 40);
+	      c.add(label02);
+	      
+	      setVisible(true);
+	   }
+
+	   public void on_click() {
+	      String str01 = textField01.getText();
+	      
+	      int value01 = Integer.parseInt(str01);
+	   
+	      String num = Double.toString(value01 * value01 * PI);
+	      
+	      textFieldResult.setText(num);
+	      }
+	   
+	   static class windowListener extends WindowAdapter{
+	      public void windowClosing(WindowEvent ev){
+	         System.exit(0);
+	         }
+	      }
+
+	   public static void main(String[] args) {
+	      // TODO Auto-generated method stub
+	      // 1
+	      Sample sample = new Sample();
+	   }
+	}
