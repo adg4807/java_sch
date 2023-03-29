@@ -1,0 +1,149 @@
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+
+public class Sample extends JFrame {
+   Container c = getContentPane();
+   
+   JTextField textField01;
+   JTextField textField02;
+   JTextField textFieldResult;
+   
+   public Sample() {
+      // 2
+      c.setLayout(null);
+      setSize(500,500);
+      setTitle("java gui 프로그래밍창");
+      
+      JButton btnClick01 = new JButton("더하기");
+      btnClick01.setBackground(Color.lightGray);
+      btnClick01.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+            on_clickPlus();
+         }
+      });
+      btnClick01.setBounds(40, 160, 150, 40);
+      c.add(btnClick01);
+   
+      JButton btnClick02 = new JButton("빼기");
+      btnClick02.setBackground(Color.LIGHT_GRAY);
+      btnClick02.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+            on_clickMinus();
+         }
+      });
+      btnClick02.setBounds(260, 160, 150, 40);
+      c.add(btnClick02);
+      
+      JButton btnClick03 = new JButton("곱셈");
+      btnClick03.setBackground(Color.lightGray);
+      btnClick03.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+            on_clickSub();
+         }
+      });
+      
+      btnClick03.setBounds(260, 220, 150, 40);
+      c.add(btnClick03);
+      
+      JButton btnClick04 = new JButton("나누기 몫");
+      btnClick04.setBackground(Color.lightGray);
+      btnClick04.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+            on_clickqu();
+         }
+      });
+      
+      btnClick04.setBounds(40, 220, 150, 40);
+      c.add(btnClick04);
+         
+      // 2
+      textField01 = new JTextField();
+      textField01.setBounds(20, 40, 200, 40);
+      c.add(textField01);
+      
+      textField02 = new JTextField();
+      textField02.setBounds(240, 40, 200, 40);
+      c.add(textField02);
+      
+      textFieldResult = new JTextField();
+      textFieldResult.setBounds(125, 100, 200, 40);
+      c.add(textFieldResult);
+      
+      setVisible(true);
+   }
+
+
+public void on_clickPlus() {
+      // 3
+      String str01 = textField01.getText();
+      String str02 = textField02.getText();
+      
+      int value01 = Integer.parseInt(str01);
+      int value02 = Integer.parseInt(str02);
+   
+      String num = Integer.toString(value01 + value02);
+      
+      textFieldResult.setText(num);
+      }
+   
+   public void on_clickMinus() {
+      // 3
+      String str01 = textField01.getText();
+      String str02 = textField02.getText();
+      
+      int value01 = Integer.parseInt(str01);
+      int value02 = Integer.parseInt(str02);
+   
+      String num = Integer.toString(value01 - value02);
+      
+      textFieldResult.setText(num);
+      }
+   public void on_clickSub() {
+	// TODO Auto-generated method stub
+	   String str01 = textField01.getText();
+	      String str02 = textField02.getText();
+	      
+	      int value01 = Integer.parseInt(str01);
+	      int value02 = Integer.parseInt(str02);
+	   
+	      String num = Integer.toString(value01 * value02);
+	      
+	      textFieldResult.setText(num);
+
+
+   }
+   protected void on_clickqu() {
+		// TODO Auto-generated method stub
+	   String str01 = textField01.getText();
+	      String str02 = textField02.getText();
+	      
+	      int value01 = Integer.parseInt(str01);
+	      int value02 = Integer.parseInt(str02);
+	   
+	      String num = Integer.toString(value01 / value02);
+	      
+	      textFieldResult.setText(num);
+	}
+
+   
+   static class windowListener extends WindowAdapter{
+      public void windowClosing(WindowEvent ev)
+         {
+         System.exit(0);
+         }
+      }
+
+   public static void main(String[] args) {
+      // TODO Auto-generated method stub
+      // 1
+      Sample sample = new Sample();
+   }
+}
